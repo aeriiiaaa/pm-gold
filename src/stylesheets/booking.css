@@ -1,0 +1,294 @@
+/* Цвета и шрифт как в прототипе в Figma */
+:root {
+  --bg: #0f0f0f;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+  --grey: #8c8c8c;
+  --error: #ff7a6b;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'PT Root UI', Arial, sans-serif;
+  line-height: 1.3;
+}
+
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 30px;
+}
+
+/* Блок записи */
+.booking {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+}
+.booking__form {
+  position: relative;
+  z-index: 1;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+.booking__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.booking__label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.booking__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.booking__question {
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.booking__lead {
+  font-size: 24px;
+  color: var(--muted);
+  max-width: 900px;
+  margin: 24px 0;
+}
+.booking__nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+.booking__nav .button {
+  width: 447px;
+  max-width: 100%;
+}
+.booking__again {
+  margin-top: 24px;
+  background: none;
+  border: none;
+  color: var(--grey);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Плитки выбора */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.tiles--big {
+  grid-template-columns: repeat(2, 1fr);
+}
+.tiles--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  text-align: left;
+  background: rgba(15, 15, 15, 0.85);
+  border: 1px solid var(--grey);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tiles--big .tile {
+  min-height: 190px;
+  padding: 40px 25px;
+}
+.tile:hover,
+.tile:focus-visible {
+  border-color: var(--text);
+  outline: none;
+}
+.tile--active {
+  border-color: var(--text);
+  background: #1e1e1e;
+}
+.tile__title {
+  font-size: 34px;
+}
+.tiles--big .tile__title {
+  font-size: 40px;
+}
+.tile__caption {
+  font-size: 16px;
+  color: var(--grey);
+  white-space: pre-line;
+}
+.tiles--big .tile__caption {
+  font-size: 20px;
+}
+
+/* Кнопки в стиле прототипа: обводка без скругления */
+.button {
+  display: block;
+  padding: 23px;
+  border: 1px solid var(--grey);
+  background: transparent;
+  color: var(--grey);
+  font: inherit;
+  font-size: 19px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.button:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text);
+}
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.button--primary {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+.button--primary:hover:not(:disabled) {
+  color: var(--bg);
+}
+
+/* Контакты */
+.contacts {
+  display: grid;
+  gap: 28px;
+}
+.summary {
+  font-size: 16px;
+}
+.summary span {
+  color: var(--grey);
+}
+.contacts__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.field {
+  display: grid;
+  gap: 12px;
+}
+.field__label,
+.contacts__label {
+  font-size: 16px;
+  color: var(--muted);
+}
+.input {
+  padding: 16px 0;
+  border: none;
+  border-bottom: 1px solid var(--grey);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 24px;
+}
+.input::placeholder {
+  color: var(--grey);
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: var(--text);
+}
+.field--error .input {
+  border-bottom-color: var(--error);
+}
+.field__error {
+  font-size: 14px;
+  color: var(--error);
+}
+.contacts__ways {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.chip {
+  padding: 10px 20px;
+  border: 1px solid var(--grey);
+  background: transparent;
+  color: var(--grey);
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+.chip--active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--grey);
+  cursor: pointer;
+}
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--text);
+}
+
+/* Телефон */
+@media (max-width: 860px) {
+  .page {
+    padding: 40px 16px;
+  }
+  .booking {
+    min-height: 0;
+  }
+  .booking__question {
+    font-size: 26px;
+  }
+  .tiles,
+  .tiles--big,
+  .contacts__row {
+    grid-template-columns: 1fr;
+  }
+  .tiles--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .tiles--four .tile {
+    padding: 16px;
+  }
+  .tiles--four .tile__title {
+    font-size: 19px;
+  }
+  .tiles--four .tile__caption {
+    font-size: 14px;
+  }
+  .booking__nav .button {
+    flex: 1;
+  }
+  .tile__title,
+  .tiles--big .tile__title {
+    font-size: 28px;
+  }
+  .booking__nav {
+    gap: 12px;
+  }
+}
+
